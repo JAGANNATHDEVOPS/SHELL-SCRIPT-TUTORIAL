@@ -10,9 +10,10 @@ if [ "$os_type" == "Linux" ]; then
                         echo "======================="
                         echo "IT'S UBUNTU"
                         git clone https://github.com/JAGANNATHDEVOPS/JENKINS-TUTORIAL.git
-                        sudo mv JENKINS-TUTORIAL/jenkins-installation /etc/ansible/roles/
-                        cp JENKINS-TUTORIAL/jenkins-install-in-both-ubuntu-amazon-linux.yml JENKINS-TUTORIAL/jenkins-installation/tasks/main.yml
-                        ansible-playbook jenkins-install-ubuntu.yml
+                        sudo cp -r JENKINS-TUTORIAL/jenkins-installation /etc/ansible/roles/
+                        sudo rm -rf /etc/ansible/roles/jenkins-installation/tasks/main.yml
+                        sudo cp JENKINS-TUTORIAL/jenkins-install-in-both-ubuntu-amazon-linux.yml JENKINS-TUTORIAL/jenkins-installation/tasks/main.yml
+                        sudo ansible-playbook ./jenkins-install-ubuntu.yml
                         echo "======================="
                         exit 0
                 elif [ "$ID" == "amzn" ]; then
@@ -22,7 +23,7 @@ if [ "$os_type" == "Linux" ]; then
                         sudo yum install git -y
                         git clone https://github.com/JAGANNATHDEVOPS/JENKINS-TUTORIAL.git
                         cp JENKINS-TUTORIAL/jenkins-install-in-both-ubuntu-amazon-linux.yml JENKINS-TUTORIAL/jenkins-installation/tasks/main.yml
-                        ansible-playbook jenkins-install.yml
+                        ansible-playbook ./jenkins-install.yml
                         exit 0
                 fi
         fi
