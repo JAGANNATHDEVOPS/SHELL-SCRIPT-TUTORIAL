@@ -19,7 +19,7 @@ install_python3_pip_on_amazon_linux() {
 
 add_repository_on_ubuntu() {
         echo "ADD APT REPOSITORY IN UBUNTU"
-        sudo add-apt-repository --yes --update ppa:ansible/ansibl
+        sudo add-apt-repository --yes --update ppa:ansible/ansible
 }
 update_packages_on_ubuntu() {
         echo "UPDATING THE PACKAGES IN UBUNTU"
